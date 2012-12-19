@@ -3,7 +3,11 @@ require "rspec"
 require "./lib/suburi"
 
 describe Suburi do
-  it "なにかかえってくること" do
-    Suburi.lunch.should be
+  describe ".lunch" do
+    subject { Suburi.lunch }
+    context "srand(100)のとき" do
+      before { srand(100) }
+      it { should eq("バナナ") }
+    end
   end
 end
